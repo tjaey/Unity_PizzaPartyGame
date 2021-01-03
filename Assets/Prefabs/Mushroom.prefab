@@ -104,11 +104,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8494198198934497388}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.68804216, y: 0.6902175, z: 0.6630435}
+  m_Center: {x: 0.035405397, y: -0.0081522465, z: -0.0054347515}
 --- !u!114 &8494198198934497303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +146,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011395917184, guid: 630adda25e718324a80512d3e4d69e13, type: 3}
       propertyPath: m_Name
+      value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011395917184, guid: 630adda25e718324a80512d3e4d69e13, type: 3}
+      propertyPath: m_TagString
       value: Mushroom
       objectReference: {fileID: 0}
     - target: {fileID: 4000012073451790, guid: 630adda25e718324a80512d3e4d69e13, type: 3}

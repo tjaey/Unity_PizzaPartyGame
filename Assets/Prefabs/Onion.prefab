@@ -104,7 +104,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4107352049374903922}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
@@ -146,6 +146,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1067201021930494, guid: 097013ceeb8052648be3891c0984df9a, type: 3}
       propertyPath: m_Name
+      value: Onion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067201021930494, guid: 097013ceeb8052648be3891c0984df9a, type: 3}
+      propertyPath: m_TagString
       value: Onion
       objectReference: {fileID: 0}
     - target: {fileID: 4089867009530516, guid: 097013ceeb8052648be3891c0984df9a, type: 3}
