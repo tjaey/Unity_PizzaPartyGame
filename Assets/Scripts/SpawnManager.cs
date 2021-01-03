@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-	public GameObject[] ingredPrefabs = new GameObject[5];
+	[SerializeField] GameObject[] ingredPrefabs = new GameObject[5];
 	private float startDelay = 2;
 	private float repeatRate = 2;
-	private float xBound = 10;
+	private float maxX = 7;
 	private float yPos = 17;
 	private float zPos = -2.5f;
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
     void SpawnIngred(){
     	int ingredNum = Random.Range(0, ingredPrefabs.Length);
     	GameObject ingred = ingredPrefabs[ingredNum];
-    	float spawnPosX = Random.Range(-xBound, xBound);
+    	float spawnPosX = Random.Range(-maxX, maxX);
     	Vector3 spawnPos = new Vector3(spawnPosX, yPos, zPos);
     	Instantiate(ingred, spawnPos, ingred.transform.rotation);
     }

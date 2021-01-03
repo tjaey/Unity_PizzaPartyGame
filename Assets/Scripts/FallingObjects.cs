@@ -5,8 +5,8 @@ using UnityEngine;
 public class FallingObjects : MonoBehaviour
 {
   private float gravityModifier = 0.9f;
+	private float lowerBound = -4; //threshold for destroying fallen objs
 
-	private float lowerBound = -4;
     // Start is called before the first frame update
     void Start()
     {
