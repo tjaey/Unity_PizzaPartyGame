@@ -39,51 +39,47 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
         
+        displayTopping(other);
+        
+        if(!isCorrectIngred(other)){
+            gameOver = true;
+            Debug.Log("Game over");
+        }
+        else{
+            Debug.Log("Pro Cooking Skills");
+        }
+        Destroy(other.gameObject);
 
-        Debug.Log(other.tag);
+    }
+
+
+    private void displayTopping(Collider other){
         switch(other.tag){
+
             case "Anchovy" :
-                Debug.Log("Anchovy");
                 pizzaToppings[0].SetActive(true);
                 break;
 
             case "Cheese" :
-                Debug.Log("Cheese");
+                pizzaToppings[1].SetActive(true);
                 break;
 
             case "Mushroom" :
-                Debug.Log("Mushroom");
+                pizzaToppings[2].SetActive(true);
                 break;
 
             case "Onion" :
-
+                pizzaToppings[3].SetActive(true);
                 break;
 
             case "Pepperoni" :
-
+                pizzaToppings[4].SetActive(true);
                 break;
 
             default :
-
+                Debug.Log("Unkown pizza topping gameObject");
                 break;
         }
-
-        bool correct = false;
-
-        for(int i = 0; i < recipe.Length; i++){
-            if(other.CompareTag(recipe[i])){
-                correct = true;
-            }
-        }
-        
-        if(!correct){
-            gameOver = true;
-            //Debug.Log("Game over");
-        }
-        else{
-            //Debug.Log("Pro Cooking Skills");
-        }
-        Destroy(other.gameObject);
     }
 
     private bool isCorrectIngred(Collider other){
