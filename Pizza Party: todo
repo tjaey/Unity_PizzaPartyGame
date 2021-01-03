@@ -1,0 +1,19 @@
+Pizza Party: todo
+
+	> make list of recipes
+	> implement choose random recipe
+	> implement score
+	> implement toppings appearing on pizza when triggered
+	> make 'start game' menu w/ 'pizza party' title
+	> make 'recipe' UI in corner of screen
+	> find/place a better background image
+	> add some sound effects when:
+		> topping falls
+		> topping collides with pizza
+	> add particple effect when topping hits pizza:
+		> green for correct topping
+		> red for bad topping
+	> implement timer & cointinuous pizza making random recipes
+
+	Pos:
+		> add 'easy', 'med', and 'hard' mode, where med & hard mode req's specific # of each ingredient instead of >= 1 being enough for each, and hard mode reqs ingredients be added in order.
