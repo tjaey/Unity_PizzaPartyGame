@@ -1,10 +1,11 @@
 Pizza Party: todo
 
-	> make list of recipes
-	> implement choose random recipe
+	> make more recipes
+		>> find way to organize/reference better
+	> add a few more toppings
 	> implement score
 	> make 'start game' menu w/ 'pizza party' title
-	> make 'recipe' UI in corner of screen
+	> clean-up recipe UI
 	> find/place a better background image
 	> add some sound effects when:
 		> topping falls
@@ -22,3 +23,6 @@ Pizza Party: todo
 Done:
 
 	> implement toppings appearing on pizza when triggered
+	> implement choose random recipe
+	> make 'recipe' UI in corner of screen
+	> make multiple recipes
