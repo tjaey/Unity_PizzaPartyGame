@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private GameManager gameManager;
     private float moveSpeed = 10.0f;
     private Rigidbody playerRb;
     private float horizontalInput;
     private float maxX = 7; //threshold for sides of playable area
     private string[] recipe = {"Cheese", "Pepperoni", "Mushroom"};
     [SerializeField] GameObject[] pizzaToppings = new GameObject[5];
-    public bool gameOver = false;
+    //public bool gameOver = false;
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         playerRb = GetComponent<Rigidbody>();
     }
 
@@ -41,13 +43,8 @@ public class PlayerController : MonoBehaviour
         
         displayTopping(other);
         
-        if(!isCorrectIngred(other)){
-            gameOver = true;
-            Debug.Log("Game over");
-        }
-        else{
-            Debug.Log("Pro Cooking Skills");
-        }
+        gameManager.addPizzaIngred(other);
+        
         Destroy(other.gameObject);
 
     }
@@ -82,14 +79,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool isCorrectIngred(Collider other){
+    /*private bool isCorrectIngred(Collider other){
         for(int i = 0; i < recipe.Length; i++){
             if(other.CompareTag(recipe[i])){
                 return true;
             }
         }
         return false;
-    }
+    }*/
 
 }
 
