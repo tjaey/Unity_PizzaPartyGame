@@ -1,11 +1,12 @@
 Pizza Party: todo
 
+	> destroy falling objects past bottom border
 	> make more recipes
 		>> find way to organize/reference better
 	> add a few more toppings
-	> implement score
 	> make 'start game' menu w/ 'pizza party' title
 	> clean-up recipe UI
+		> UI topping images need color/fade when are already on pizza
 	> find/place a better background image
 	> add some sound effects when:
 		> topping falls
@@ -13,7 +14,8 @@ Pizza Party: todo
 	> add particple effect when topping hits pizza:
 		> green for correct topping
 		> red for bad topping
-	> implement timer & cointinuous pizza making random recipes
+
+	> pause between correct/bad pizza and new pizza regen
 
 	Pos:
 		> add 'easy', 'med', and 'hard' mode, where med & hard mode req's specific # of each ingredient instead of >= 1 being enough for each, and hard mode reqs ingredients be added in order.
@@ -26,3 +28,5 @@ Done:
 	> implement choose random recipe
 	> make 'recipe' UI in corner of screen
 	> make multiple recipes
+	> implement score
+	> implement timer & cointinuous pizza making random recipes

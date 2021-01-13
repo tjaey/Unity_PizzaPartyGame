@@ -41,18 +41,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
         
-        displayTopping(other);
+        DisplayTopping(other);
         
-        gameManager.addPizzaIngred(other);
+        gameManager.AddPizzaIngred(other);
         
         Destroy(other.gameObject);
 
     }
 
 
-    private void displayTopping(Collider other){
+    private void DisplayTopping(Collider other){
         switch(other.tag){
-
             case "Anchovy" :
                 pizzaToppings[0].SetActive(true);
                 break;
@@ -79,14 +78,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*private bool isCorrectIngred(Collider other){
-        for(int i = 0; i < recipe.Length; i++){
-            if(other.CompareTag(recipe[i])){
-                return true;
-            }
+
+    public void ResetPizza(){
+        for(int i = 0; i < pizzaToppings.Length; i++){
+            pizzaToppings[i].SetActive(false);
         }
-        return false;
-    }*/
+    }
 
 }
 

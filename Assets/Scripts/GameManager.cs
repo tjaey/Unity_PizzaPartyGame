@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
 
     private bool gameOver;
+    private PlayerController player;
 
 	//ingredient enum
 	const int CHEESE = 0;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 
 	public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeText;
+    public TextMeshProUGUI recipeText;
     private float seconds = 75;
     private int score = 0;
 
@@ -38,12 +40,17 @@ public class GameManager : MonoBehaviour
 
 	int[] recipe = veggieRecipe;
     string[] recipeString = veggieString;
+    List<string> currPizzaNeeds = new List<string>(); 
+
+    public Vector3 recipeAnchor;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
         gameOver = false;
-        chooseRandomRecipe();
-        displayRecipe();
+        recipeAnchor = ingredImages[0].GetComponent<RectTransform>().position;
+        ChooseRandomRecipe();
+        DisplayRecipe();
     }
 
     // Update is called once per frame
@@ -58,19 +65,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool addPizzaIngred(Collider other){
+    public bool AddPizzaIngred(Collider other){
         for(int i = 0; i < recipe.Length; i++){
             if(other.CompareTag(recipeString[i])){
-                Debug.Log("Pro cooking skills");
+                CorrectTopping(recipeString[i]);
                 return true;
             }
         }
-        gameOver = true;
-        Debug.Log("Game over");
+        WrongTopping();
         return false;
     }
 
-    private void chooseRandomRecipe(){
+    private void ChooseRandomRecipe(){
         int x = Random.Range(0, numRecipes);
         switch(x){
             case 0:
@@ -91,15 +97,51 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Hit default random recipe switch");
                 break;
         }
+        currPizzaNeeds.AddRange(recipeString);
     }
 
-    private void displayRecipe(){
-        Vector3 transVector = new Vector3(0, -45, 0);
+    private void DisplayRecipe(){
+        ClearRecipe();
+        Vector3 posVector = new Vector3(0, -45, 0);
         for(int i = 0; i < recipe.Length; i++){
             Image ingred = ingredImages[recipe[i]];
-            ingred.transform.Translate(transVector * i);
+            ingred.transform.position = recipeAnchor;
+            ingred.transform.Translate(posVector * i);
             ingred.gameObject.SetActive(true);
         }
+    }
+
+    private void ClearRecipe(){
+        for(int i = 0; i < ingredImages.Length; i++){
+            ingredImages[i].gameObject.SetActive(false);
+        }
+    }
+
+
+    private void IncreaseScore(){
+        score++;
+        scoreText.text = "Score: " + score;
+    }
+
+    private void CorrectTopping(string topping){
+        //pizza topping turn green in recipe list UI
+        currPizzaNeeds.Remove(topping);
+        Debug.Log("Pro cooking skills");
+        if(currPizzaNeeds.Count < 1){
+            IncreaseScore();
+            player.ResetPizza();
+            ChooseRandomRecipe();
+            DisplayRecipe();
+            Debug.Log("Pizza Done");
+            //reset pizza topping display
+            //choose new recipe
+            // display new recipe
+        }
+    }
+
+    private void WrongTopping(){
+        //pizza topping turn red in recipe list UI
+        Debug.Log("Wrong Topping");
     }
 
     private void SetGameOver(){
