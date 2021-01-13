@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed = 10.0f;
     private Rigidbody playerRb;
     private float horizontalInput;
-    private float maxX = 7; //threshold for sides of playable area
+    private float maxX = 5; //threshold for sides of playable area
     private string[] recipe = {"Cheese", "Pepperoni", "Mushroom"};
     [SerializeField] GameObject[] pizzaToppings = new GameObject[5];
     //public bool gameOver = false;

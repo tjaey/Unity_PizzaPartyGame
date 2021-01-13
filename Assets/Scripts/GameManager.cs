@@ -19,7 +19,10 @@ public class GameManager : MonoBehaviour
 
 	public Image[] ingredImages = new Image[5];
 
-	public TextMeshProUGUI recipeText;
+	public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI timeText;
+    private float seconds = 75;
+    private int score = 0;
 
     private int numRecipes = 3;
 
@@ -46,7 +49,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!gameOver){
+            seconds -= Time.deltaTime;
+            timeText.text = "Time: " + Mathf.Round(seconds);
+            if(seconds <= 0){
+                SetGameOver();
+            }
+        }
     }
 
     public bool addPizzaIngred(Collider other){
@@ -59,10 +68,6 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         Debug.Log("Game over");
         return false;
-    }
-
-    public bool isGameOver(){
-        return gameOver;
     }
 
     private void chooseRandomRecipe(){
@@ -97,5 +102,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void SetGameOver(){
+        gameOver = true;
+    }
+
+    public bool isGameOver(){
+        return gameOver;
+    }
 
 }
