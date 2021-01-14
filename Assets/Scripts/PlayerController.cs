@@ -22,30 +22,34 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePlayer();
+        if(!gameManager.IsGameOver()){
+            MovePlayer();
+        }
     }
 
     void MovePlayer(){
-        
         float posX = transform.position.x;
 
         //move player left, if in bounds
         if(Input.GetKey(KeyCode.LeftArrow) && posX > -maxX){
             transform.Translate(Vector3.left * Time.deltaTime * moveSpeed);
         }
-        //move player right, if in bounds
+            //move player right, if in bounds
         if(Input.GetKey(KeyCode.RightArrow) && posX < maxX){
             transform.Translate(Vector3.right * Time.deltaTime * moveSpeed);
         }
+    
     }
 
     private void OnTriggerEnter(Collider other){
         
-        DisplayTopping(other);
-        
-        gameManager.AddPizzaIngred(other);
-        
-        Destroy(other.gameObject);
+        if(!gameManager.IsGameOver()){
+            DisplayTopping(other);
+            
+            gameManager.AddPizzaIngred(other);
+            
+            Destroy(other.gameObject);
+        }
 
     }
 

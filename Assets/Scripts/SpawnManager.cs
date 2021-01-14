@@ -5,8 +5,6 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
 	[SerializeField] GameObject[] ingredPrefabs = new GameObject[5];
-	private float startDelay = 2;
-	//private float repeatRate = 2;
 	private float maxX = 7;
 	private float yPos = 17;
 	private float zPos = -2.5f;
@@ -14,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     private float maxRate = 2.5f;
 
     GameManager gameManager;
-    // Start is called before the first frame update
+
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -29,7 +27,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     IEnumerator SpawnIngred(){
-        while(!gameManager.isGameOver()){
+        while(!gameManager.IsGameOver()){
            float spawnRate = Random.Range(minRate, maxRate);
     	   yield return new WaitForSeconds(spawnRate);
            int ingredNum = Random.Range(0, ingredPrefabs.Length);

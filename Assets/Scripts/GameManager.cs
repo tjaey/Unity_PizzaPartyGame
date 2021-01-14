@@ -133,9 +133,6 @@ public class GameManager : MonoBehaviour
             ChooseRandomRecipe();
             DisplayRecipe();
             Debug.Log("Pizza Done");
-            //reset pizza topping display
-            //choose new recipe
-            // display new recipe
         }
     }
 
@@ -148,7 +145,7 @@ public class GameManager : MonoBehaviour
         gameOver = true;
     }
 
-    public bool isGameOver(){
+    public bool IsGameOver(){
         return gameOver;
     }
 

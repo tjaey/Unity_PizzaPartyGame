@@ -1,5 +1,6 @@
 Pizza Party: todo
 
+	> figure out why objects are created faster than the spawn rate instantiates them.....
 	> make more recipes
 		>> find way to organize/reference better
 	> add a few more toppings
@@ -32,3 +33,4 @@ Done:
 	> implement timer & cointinuous pizza making random recipes
 	> destroy falling objects past bottom border
 	> make timing between toppings randomized
+	> stop all user interaction/spawning when game over
