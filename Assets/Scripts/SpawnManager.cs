@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
 	[SerializeField] GameObject[] ingredPrefabs = new GameObject[5];
 	private float maxX = 6.5f;
-	private float yPos = 17;
+	private float yPos = 12;
 	private float zPos = -2.5f;
     private float minRate = 1f;
     private float maxRate = 2.5f;
