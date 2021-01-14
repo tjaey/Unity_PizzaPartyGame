@@ -11,8 +11,7 @@ public class PlayerController : MonoBehaviour
     private float maxX = 5; //threshold for sides of playable area
     private string[] recipe = {"Cheese", "Pepperoni", "Mushroom"};
     [SerializeField] GameObject[] pizzaToppings = new GameObject[5];
-    //public bool gameOver = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
