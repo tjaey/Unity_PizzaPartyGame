@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Hit default random recipe switch");
                 break;
         }
+        currPizzaNeeds.Clear();
         currPizzaNeeds.AddRange(recipeString);
     }
 
@@ -138,6 +139,9 @@ public class GameManager : MonoBehaviour
 
     private void WrongTopping(){
         //pizza topping turn red in recipe list UI
+        player.ResetPizza();
+        ChooseRandomRecipe();
+        DisplayRecipe();
         Debug.Log("Wrong Topping");
     }
 
