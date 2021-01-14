@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
 	[SerializeField] GameObject[] ingredPrefabs = new GameObject[5];
-	private float maxX = 7;
+	private float maxX = 6.5f;
 	private float yPos = 17;
 	private float zPos = -2.5f;
     private float minRate = 1f;
