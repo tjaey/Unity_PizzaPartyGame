@@ -1,4 +1,13 @@
-﻿using System.Collections;
+﻿/***
+    Script manages the spawning of the falling objects
+    - at start of game, begins coroutine which spawns a
+        random ingredient from the list above the top border of the screen.
+        at a random interval 
+    - objects spawn at random interval between minRate and maxRate
+    - objects spawn at random point between -maxX and maxX
+***/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,19 +26,13 @@ public class SpawnManager : MonoBehaviour
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         StartCoroutine(SpawnIngred());
-        //InvokeRepeating("SpawnIngred", startDelay, repeatRate);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator SpawnIngred(){
         while(!gameManager.IsGameOver()){
            float spawnRate = Random.Range(minRate, maxRate);
     	   yield return new WaitForSeconds(spawnRate);
+
            int ingredNum = Random.Range(0, ingredPrefabs.Length);
     	   GameObject ingred = ingredPrefabs[ingredNum];
     	   float spawnPosX = Random.Range(-maxX, maxX);

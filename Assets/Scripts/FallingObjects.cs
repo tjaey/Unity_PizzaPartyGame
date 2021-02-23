@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*** 
+  Script applied to each object that falls from top of screen
+  - applies gravity to objects on creation
+  - destroys object if it passes lower screen bound
+***/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

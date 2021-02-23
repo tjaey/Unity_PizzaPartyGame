@@ -1,4 +1,13 @@
-﻿using System.Collections;
+﻿/***
+GameManager.cs
+    Script manages scoring, UI, and recipes(refactor needed)
+    - displays and tracks score and time UIs
+    - stores all variables for recipes and checks with whether 
+        ingredients match currnt recipe
+    - displays a random recipe from the list on start/new pizza
+***/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;

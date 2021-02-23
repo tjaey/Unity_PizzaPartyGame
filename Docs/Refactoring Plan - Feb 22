@@ -1,0 +1,33 @@
+Pizza Party Refactoring Plan - Feb 22, 2021
+
+##General
+
+	* add block comments to top of each script
+
+	* delete any unused/commented out code
+
+
+##FallingObjects.cs
+	* remove lower bounds check from FallingObjects and create lower bounds plane to trigger object deletes
+
+##SpawnManager.cs
+
+	* remove unused Update() in SpawnManager.cs
+
+	* refactor object creation & instantiation from SpawnIngred() and to make a new CreateIngred() function
+
+##GameManager.cs
+
+	* refactor into
+		> GameManager
+			- display/updating/tracking score
+			- display/updating/tracking time
+			- init game
+			- reset game
+		> RecipeManager
+			- create/store list of recipes
+			- choose random recipe and display 
+			- check if an ingredient matches current recipe
+		> Recipe.class
+			- store all needed references & attributes
+			- recipe.contains() 

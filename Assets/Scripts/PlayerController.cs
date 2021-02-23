@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿/***
+PlayerController.cs
+    Script controls the player(pizza) movement and object triggers
+    - player uses left and right arrow keys to move
+    - when falling object collides with pizza
+        > displays topping on pizza
+        > notifies GameManager
+        > destroys object
+***/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -89,14 +99,6 @@ public class PlayerController : MonoBehaviour
     }
 
 }
-
-
-
-
-
-
-
-
 
 
 
